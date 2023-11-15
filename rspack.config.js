@@ -2,6 +2,12 @@ const config = {
   entry: {
     main: "./src/main.jsx",
   },
+  devServer: {
+    historyApiFallback: true,
+    allowedHosts: "all",
+    host: "localhost",
+    port: 3000,
+  },
   module: {
     rules: [
       {
@@ -11,11 +17,14 @@ const config = {
     ],
   },
   builtins: {
-    html: [
+    HtmlRspackPluginOptions: [
       {
         template: "./index.html",
+        favicon: "./public/logo.png",
+        minify: true,
       },
     ],
   },
 };
+
 module.exports = config;
