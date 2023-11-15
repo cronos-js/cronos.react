@@ -1,12 +1,15 @@
+const rspack = require("@rspack/core");
+
 const config = {
   entry: {
     main: "./src/main.jsx",
   },
+
   devServer: {
     historyApiFallback: true,
     allowedHosts: "all",
     host: "localhost",
-    port: 3000,
+    port: 4173,
   },
   module: {
     rules: [
@@ -16,15 +19,9 @@ const config = {
       },
     ],
   },
-  builtins: {
-    HtmlRspackPluginOptions: [
-      {
-        template: "./index.html",
-        favicon: "./public/logo.png",
-        minify: true,
-      },
-    ],
-  },
+  plugins: [new rspack.HtmlRspackPlugin({ template: "./index.html" })].filter(
+    Boolean
+  ),
 };
 
 module.exports = config;
