@@ -19,9 +19,12 @@ const config = {
       },
     ],
   },
-  plugins: [new rspack.HtmlRspackPlugin({ template: "./index.html", favicon: "./public/logo.png" })].filter(
-    Boolean
-  ),
+  plugins: [
+    new rspack.HtmlRspackPlugin({
+      template: "./index.html",
+      favicon: "./public/logo.png",
+    }),
+  ].filter(Boolean),
 };
 
 module.exports = config;
